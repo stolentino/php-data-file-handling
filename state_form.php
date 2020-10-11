@@ -17,6 +17,17 @@
             }
             fclose($fh);
         }
+        echo '<optgroup label="US Outlying Territories">';
+        $states = file_get_contents('../data/html/territories.html');
+        echo strtolower($states);
+        echo '</optgroup>';
+
+        echo '<optgroup label="Armed Forces">';
+        $state_array = file('../data/html/armed_forces.html');
+        foreach($state_array as $line){
+            echo str_replace('Armed Forces', '', $line);
+        }
+        echo '</optgroup>'
         ?>
     </select>
     </form>
